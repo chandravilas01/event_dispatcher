@@ -1,0 +1,22 @@
+{
+    "authors": [
+        {
+            "name": "not yet",
+            "email": "admin@srijan.net"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Drupal\\kafka\\Composer\\": "src/Composer"
+        }
+    },
+    "description": "A Drupal 8 facade for Apache Kafka, based on librdkafka.",
+    "license": "GPL-2.0+",
+    "minimum-stability": "dev",
+    "name": "drupal/kafka_services",
+    "require": {
+        "ext-rdkafka": ">= 3.0.3",
+        "php": ">= 5.6.27",
+    },
+    "type": "drupal-module"
+}

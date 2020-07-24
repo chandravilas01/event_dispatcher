@@ -4,8 +4,7 @@
  * @file
  * Contains Drupal\event_dispatcher\Form\KafkaConfigForm.
  */
-
-namespace Drupal\event_dispatcher\Form;
+namespace Drupal\kafka_services\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -79,6 +78,7 @@ class KafkaConfigForm extends ConfigFormBase {
       '#description' => t('A Topic is a category/feed name to which records are stored and published.'),
       '#placeholder' => t('topic name'),
       '#default_value' => $config->get('kafka_topic'),
+      '#required' => TRUE,
     );
 
     $form['kafka']['kafka_broker_list'] = array(
@@ -88,6 +88,7 @@ class KafkaConfigForm extends ConfigFormBase {
       '#description' => t('Enter kafka brokers by comma(,) separate list (10.0.0.1:9092, 10.0.0.2:9092), A broker
       is a Kafka server and Kafka cluster typically consists of multiple brokers to maintain load balance.'),
       '#default_value' => $config->get('kafka_broker_list'),
+      '#required' => TRUE,
     );
 
     return parent::buildForm($form, $form_state);

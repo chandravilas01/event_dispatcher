@@ -5,6 +5,8 @@ namespace Drupal\event_dispatcher\EventDispatcher;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Drupal\Component\EventDispatcher\ContainerAwareEventDispatcher;
+use Drupal\kafka_services\Controller\KafkaController;
+use Drupal\kafka_services\Services\KafkaServices;
 
 class EventDispatcher extends ContainerAwareEventDispatcher {
 
@@ -19,20 +21,13 @@ class EventDispatcher extends ContainerAwareEventDispatcher {
 
   /**
    * @param string $event_name
+   * @param $kafka
    * @param Event|NULL $event
    * @return Event|void|null
    */
   public function dispatch($event_name, Event $event = NULL) {
     parent::dispatch($event_name, $event);
-    $route_name = \Drupal::routeMatch()->getRouteName();
-    if ($route_name != 'event_dispatcher.kafka_configuration_form') {
-      $kafka_config = \Drupal::service('event_dispatcher.kafka_factory_service');
-      if ($kafka_config->getKafkaConfigStatus()) {
-        $kafka_config->produce($event_name);
-      }
-    }
-    // \Drupal::logger('custom_event')->notice("I am being called - $event_name");
-     //dvm($event_name);
-    // //dvm($event);
+    $kafka = new KafkaController;
+    $kafka->produce($event);
   }
 }
