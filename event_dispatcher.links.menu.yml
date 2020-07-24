@@ -1,0 +1,5 @@
+event_dispatcher.kafka_configuration_form:
+  title: Kafka Configuration
+  description: 'Configure kafka based on event dispatcher.'
+  route_name: event_dispatcher.kafka_configuration_form
+  parent: system.admin_config_system

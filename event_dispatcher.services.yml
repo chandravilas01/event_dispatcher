@@ -1,0 +1,7 @@
+services:
+  event_dispatcher:
+    class: Drupal\event_dispatcher\EventDispatcher\EventDispatcher
+    arguments: ['@service_container']
+  event_dispatcher.kafka_factory_service:
+    class: Drupal\event_dispatcher\Services\KafkaServices
+    arguments: ['@config.factory']
