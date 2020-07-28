@@ -1,13 +1,14 @@
 type: module
-name: Kafka Services
+name: RdKafka
 description: 'Provides apache kafka services'
 core_version_requirement: ^8.7.7 || ^9
 hidden: false
+dependencies:
+  - event_dispatcher
 
 package: Event
 
 # Information added by Drupal.org packaging script on 2020-05-21
 version: '8.x-1.12'
-project: 'kafka_services'
+project: 'RdKafka'
 datestamp: 1590061337
-

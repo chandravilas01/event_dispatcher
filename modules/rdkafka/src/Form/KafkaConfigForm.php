@@ -4,7 +4,7 @@
  * @file
  * Contains Drupal\event_dispatcher\Form\KafkaConfigForm.
  */
-namespace Drupal\kafka_services\Form;
+namespace Drupal\rdkafka\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -56,22 +56,6 @@ class KafkaConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('kafka_enable'),
     );
 
-    $form['kafka']['kafka_sasl_username'] = array(
-      '#type' => 'textfield',
-      '#title' => t('SASL username'),
-      '#description' => t('Enter SASL username to authenticate with kafka.'),
-      '#placeholder' => t('8vbchf6q'),
-      '#default_value' => $config->get('kafka_sasl_username'),
-    );
-
-    $form['kafka']['kafka_sasl_password'] = array(
-      '#type' => 'textfield',
-      '#title' => t('SASL password'),
-      '#description' => t('Enter SASL username to authenticate with kafka.'),
-      '#placeholder' => t('Gk63pMmGhFOVLSERIIIMeFVA8-fnP4vj'),
-      '#default_value' => $config->get('kafka_sasl_password'),
-    );
-
     $form['kafka']['kafka_topic'] = array(
       '#type' => 'textfield',
       '#title' => t('Topic'),
@@ -109,8 +93,6 @@ class KafkaConfigForm extends ConfigFormBase {
 
     $this->config('kafka_config.settings')
       ->set('kafka_enable', $form_state->getValue('kafka_enable'))
-      ->set('kafka_sasl_username', $form_state->getValue('kafka_sasl_username'))
-      ->set('kafka_sasl_password', $form_state->getValue('kafka_sasl_password'))
       ->set('kafka_topic', $form_state->getValue('kafka_topic'))
       ->set('kafka_broker_list', $form_state->getValue('kafka_broker_list'))
       ->save();

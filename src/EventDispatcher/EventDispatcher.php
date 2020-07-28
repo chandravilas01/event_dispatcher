@@ -5,8 +5,6 @@ namespace Drupal\event_dispatcher\EventDispatcher;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Drupal\Component\EventDispatcher\ContainerAwareEventDispatcher;
-use Drupal\kafka_services\Controller\KafkaController;
-use Drupal\kafka_services\Services\KafkaServices;
 
 class EventDispatcher extends ContainerAwareEventDispatcher {
 
@@ -27,7 +25,8 @@ class EventDispatcher extends ContainerAwareEventDispatcher {
    */
   public function dispatch($event_name, Event $event = NULL) {
     parent::dispatch($event_name, $event);
-    $kafka = new KafkaController;
-    $kafka->produce($event);
+
+    $service = \Drupal::service('event_dispatcher.event_service');
+    $service->send($event_name, $event);
   }
 }
