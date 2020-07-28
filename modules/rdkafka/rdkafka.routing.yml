@@ -1,7 +1,7 @@
-kafka_services.kafka_configuration_form:
+rdkafka.kafka_configuration_form:
   path: '/admin/config/system/kafka_configuration'
   defaults:
-    _form: 'Drupal\kafka_services\Form\KafkaConfigForm'
+    _form: 'Drupal\rdkafka\Form\KafkaConfigForm'
     _title: 'Configure Kafka'
   requirements:
     _permission: 'access administration pages'

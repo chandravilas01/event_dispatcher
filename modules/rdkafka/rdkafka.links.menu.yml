@@ -1,5 +1,5 @@
-kafka_services.kafka_configuration_form:
+rdkafka.kafka_configuration_form:
   title: Kafka Configuration
   description: 'Configure kafka based on event dispatcher.'
-  route_name: kafka_services.kafka_configuration_form
+  route_name: rdkafka.kafka_configuration_form
   parent: system.admin_config_system

@@ -3,8 +3,6 @@ name: Event Dispatcher
 description: 'Dispatches events on entity create, update and delete.'
 package: Event
 # core: 8.x
-dependencies:
-  - kafka_services
 
 # Information added by Drupal.org packaging script on 2018-01-19
 version: '8.x-1.1'
