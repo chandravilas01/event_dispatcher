@@ -6,6 +6,10 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Drupal\Component\EventDispatcher\ContainerAwareEventDispatcher;
 
+/**
+ *
+ * EventDispatcher to dispatch event
+ */
 class EventDispatcher extends ContainerAwareEventDispatcher {
 
   /**

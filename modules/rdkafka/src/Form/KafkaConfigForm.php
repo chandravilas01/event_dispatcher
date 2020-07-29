@@ -14,7 +14,6 @@ use Drupal\Core\Form\FormStateInterface;
  *
  * @package Drupal\event_dispatcher\Form
  */
-
 class KafkaConfigForm extends ConfigFormBase {
 
   /**
